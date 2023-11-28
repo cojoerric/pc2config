@@ -1,0 +1,25 @@
+{
+  "name": "pc2config",
+  "displayName": "pc2config",
+  "description": "Language support for PC2 .config files.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "pc2config",
+      "aliases": ["Config", "pc2config"],
+      "extensions": [".config"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "pc2config",
+      "scopeName": "",
+      "path": "./syntaxes/pc2config.tmLanguage.json"
+    }]
+  }
+}
