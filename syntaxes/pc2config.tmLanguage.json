@@ -6,7 +6,16 @@
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
+			"include": "#strings_quoted"
+		},
+		{
+			"include": "#strings_unquoted"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constant"
 		}
 	],
 	"repository": {
@@ -16,7 +25,7 @@
 				"match": "\\b(if|while|for|return)\\b"
 			}]
 		},
-		"strings": {
+		"strings_quoted": {
 			"name": "string.quoted.double.pc2config",
 			"begin": "\"",
 			"end": "\"",
@@ -26,7 +35,32 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"strings_unquoted": {
+			"name": "string.unquoted.pc2config",
+			"match": "(\\=\\s*)(\\b(?:[^\"'\\s\\d]+)\\b(?:\\s+[^\"'\\s\\d]+\\b)*)",
+			"captures": {
+			   "1": { "name": "keyword.operator.assignment" },
+			   "2": { "name": "string.unquoted.pc2config.content" }
+			}
+		},
+		"comments": {
+			"patterns": [
+				{
+				  "name": "comment.line.pc2config",
+				  "begin": "#.*",
+				  "end": "\\n"
+				}
+			]
+		},
+		"constant": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "\\b\\d+\\b"
+				}
+			]
 		}
 	},
-	"scopeName": ""
+	"scopeName": "source.pc2config"
 }
